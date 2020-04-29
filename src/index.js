@@ -3,7 +3,16 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 
 const App = () => {
-  return <Hello />;
+  return (
+    <div style={styles}>
+      <Hello />
+    </div>
+  );
+};
+
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
 };
 
 render(<App />, document.getElementById('root'));
