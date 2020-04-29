@@ -31,6 +31,6 @@ $ npm start
 
 ## Built With
 
-- [React](https://reactjs.org/)
 - [NodeJS](https://nodejs.org/en/)
+- [React](https://reactjs.org/)
 - [Material-UI](https://github.com/mui-org/material-ui)
