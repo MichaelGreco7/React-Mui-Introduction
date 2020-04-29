@@ -18,34 +18,46 @@ const styles = {
   },
 };
 
-export default ({ exercises }) => (
+export default ({
+  exercises,
+  category,
+  onSelect,
+  exercise: {
+    id,
+    title = 'Welcome',
+    description = 'Please select an exercise from the list.',
+  },
+}) => (
   <Grid container>
     <Grid item sm>
       <Paper style={styles.Paper}>
-        {exercises.map(([group, exercises]) => (
-          <Fragment>
-            <Typography
-              // variant="headline"
-              style={{ textTransform: 'capitalize' }}
-            >
-              {group}
-            </Typography>
-            <List component="ul">
-              {exercises.map(({ title }) => (
-                <ListItem button>
-                  <ListItemText primary={title} />
-                </ListItem>
-              ))}
-            </List>
-          </Fragment>
-        ))}
+        {exercises.map(([group, exercises]) =>
+          !category || category === group ? (
+            <Fragment key={group}>
+              <Typography
+                // variant="headline"
+                style={{ textTransform: 'capitalize' }}
+              >
+                {group}
+              </Typography>
+              <List component="ul">
+                {exercises.map(({ id, title }) => (
+                  <ListItem key={id} button onClick={() => onSelect(id)}>
+                    <ListItemText primary={title} />
+                  </ListItem>
+                ))}
+              </List>
+            </Fragment>
+          ) : null
+        )}
       </Paper>
     </Grid>
     <Grid item sm>
       <Paper style={styles.Paper}>
-        <Typography variant="display1">Welcome</Typography>
+        {title}
+        <Typography variant="display1"></Typography>
         <Typography varient="subheading" style={{ marginTop: 20 }}>
-          Please select an exercise from the list.
+          {description}
         </Typography>
       </Paper>
     </Grid>
