@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 
 export default class App extends Component {
   state = { exercises: [], title: '' };
 
   render() {
-    return <h1>Hi</h1>;
+    return (
+      <Typography vartient="display1" align="center" gutterBottom>
+        {' '}
+        Center
+      </Typography>
+    );
   }
 }
