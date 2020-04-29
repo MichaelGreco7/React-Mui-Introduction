@@ -1,13 +1,13 @@
 import React, { Fragment, Component } from 'react';
 import { Header, Footer } from './layouts';
-import Exercises from './exercises';
+import Exercise from './exerciseComponent';
 
 export default class extends Component {
   render() {
     return (
       <Fragment>
         <Header />
-        <Exercises />
+        <Exercise />
         <Footer />
       </Fragment>
     );
